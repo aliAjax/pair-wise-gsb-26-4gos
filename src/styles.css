@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -214,13 +215,15 @@ label {
   gap: 8px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0 12px;
   color: #172033;
+  background: #ffffff;
 }
 
 .record-list {
@@ -260,6 +263,270 @@ input {
   line-height: 1.6;
 }
 
+/* ---- 规则速览 ---- */
+
+.rule-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* ---- 表单 ---- */
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.muted {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ---- 受阻报告 ---- */
+
+.blocked-report {
+  margin-top: 18px;
+  border: 1px solid #fecaca;
+  border-left: 6px solid #e11d48;
+  border-radius: 8px;
+  background: #fff5f5;
+  padding: 16px 18px;
+}
+
+.blocked-report.kind-quota {
+  border-color: #fde68a;
+  border-left-color: var(--warn);
+  background: #fffbeb;
+}
+
+.blocked-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.blocked-head strong {
+  color: #b91c1c;
+}
+
+.kind-quota .blocked-head strong {
+  color: #b45309;
+}
+
+.blocked-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.blocked-grid span {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.blocked-rules-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.blocked-rules {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.blocked-rules em {
+  font-style: normal;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* ---- 预约卡片 ---- */
+
+.appt-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfdff;
+  display: grid;
+  gap: 12px;
+}
+
+.appt-card.confirmed {
+  border-left: 4px solid var(--accent);
+}
+
+.appt-card.booked {
+  border-left: 4px solid var(--warn);
+}
+
+.appt-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.appt-title strong {
+  font-size: 17px;
+}
+
+.appt-main p,
+.log-card p {
+  margin: 6px 0 0;
+  color: #526070;
+  line-height: 1.6;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.badge.booked {
+  background: color-mix(in srgb, var(--warn) 16%, #ffffff);
+  color: #b45309;
+}
+
+.badge.confirmed {
+  background: color-mix(in srgb, var(--accent) 14%, #ffffff);
+  color: var(--accent);
+}
+
+.appt-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.appt-actions button {
+  min-height: 34px;
+  font-size: 14px;
+}
+
+.ghost-btn {
+  background: transparent;
+}
+
+/* ---- 内联表单（改期 / 更正） ---- */
+
+.inline-form {
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.inline-form h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.quota-hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.quota-hint.warn {
+  color: #b45309;
+}
+
+/* ---- 版本列表 ---- */
+
+.version-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+}
+
+.version-list li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.version-list p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.version-tag {
+  display: inline-grid;
+  place-items: center;
+  height: 24px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--primary) 10%, #ffffff);
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* ---- 额度表 ---- */
+
+.quota-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.quota-table th,
+.quota-table td {
+  text-align: left;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quota-table th {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.quota-left {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.quota-empty {
+  color: #e11d48;
+  font-weight: 700;
+}
+
+/* ---- 改期记录 ---- */
+
+.log-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #fbfdff;
+}
+
 @media (max-width: 860px) {
   .hero,
   .workspace,
@@ -267,7 +534,8 @@ input {
     grid-template-columns: 1fr;
   }
 
-  .field-grid {
+  .field-grid,
+  .blocked-grid {
     grid-template-columns: 1fr;
   }
 }
